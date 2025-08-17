@@ -148,7 +148,7 @@ _HomePage.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵd
   type: _HomePage,
   selectors: [["app-home"]],
   standalone: false,
-  decls: 119,
+  decls: 118,
   vars: 12,
   consts: [["id", "cv-content"], [1, "cv-header"], [1, "cv-top-bar"], [1, "cv-name-title"], [1, "cv-name"], [1, "cv-logo"], ["src", "assets/indra.svg", "alt", "Minsait Indra logo"], [1, "cv-divider"], [1, "cv-summary"], [1, "profile-header"], ["src", "assets/roberto.jpg", "alt", "Foto de perfil"], [3, "routerLink"], [1, "botones-container"], [1, "ion-justify-content-center"], ["size-xs", "12", "size-md", "4"], ["expand", "block", 3, "click"]],
   template: function HomePage_Template(rf, ctx) {
@@ -257,18 +257,18 @@ _HomePage.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵd
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](107, "p");
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](108, "roberts.pineda.rcp@gmail.com");
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()()();
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](109, "ion-content")(110, "div", 12)(111, "ion-grid")(112, "ion-row", 13)(113, "ion-col", 14)(114, "ion-button", 15);
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function HomePage_Template_ion_button_click_114_listener() {
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](109, "div", 12)(110, "ion-grid")(111, "ion-row", 13)(112, "ion-col", 14)(113, "ion-button", 15);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function HomePage_Template_ion_button_click_113_listener() {
         return ctx.downloadPDF();
       });
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](115, " Exportar a PDF (Espa\u00F1ol) ");
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](114, " Exportar a PDF (Espa\u00F1ol) ");
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](116, "ion-col", 14)(117, "ion-button", 15);
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function HomePage_Template_ion_button_click_117_listener() {
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](115, "ion-col", 14)(116, "ion-button", 15);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function HomePage_Template_ion_button_click_116_listener() {
         return ctx.downloadPDFEnglish();
       });
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](118, " Export to PDF (English) ");
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()()()()()()();
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](117, " Export to PDF (English) ");
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()()()()()();
     }
     if (rf & 2) {
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](40);
@@ -292,4 +292,4 @@ _HomePage.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵd
 /***/ })
 
 }]);
-//# sourceMappingURL=5055.b6d4e8ebd3cf9c0c.js.map
+//# sourceMappingURL=5055.c39be119ed8b417a.js.map
