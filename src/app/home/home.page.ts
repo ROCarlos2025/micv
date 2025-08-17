@@ -31,4 +31,12 @@ export class HomePage {
     link.target = '_blank';
     link.click();
   }
+
+  downloadPDFEnglish() {
+    const link = document.createElement('a');
+    link.href = 'assets/CV_2025_English.pdf';
+    link.download = 'CV_2025_English.pdf';
+    link.target = '_blank';
+    link.click();
+  }
 }
