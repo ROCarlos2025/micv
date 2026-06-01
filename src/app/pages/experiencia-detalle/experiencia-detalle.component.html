@@ -1,43 +1,53 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/"></ion-back-button>
-    </ion-buttons>
-    <ion-title>{{ experiencia?.titulo }}</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="detail-content" [@fadeIn]>
+  <!-- Back button -->
+  <div class="detail-nav">
+    <button class="back-btn" (click)="goBack()">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+      <span>Back</span>
+    </button>
+  </div>
 
-<ion-content class="ion-padding" [@fadeIn]>
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>
-        <ion-icon
-          [name]="experiencia?.icono"
-          slot="start"
-          style="margin-right: 8px"
-        ></ion-icon>
-        {{ experiencia?.cargo }}
-        <div class="cv-logo">
-          <img [src]="experiencia.logo" alt="Minsait Indra logo" />
-        </div>
-      </ion-card-title>
-      <ion-card-subtitle>{{ experiencia?.periodo }}</ion-card-subtitle>
-    </ion-card-header>
-    <ion-card-content>
-      <p><strong>Tecnologías:</strong> {{ experiencia?.tecnologiasResumen }}</p>
-      <p>{{ experiencia?.descripcionGeneral }}</p>
+  <div class="detail-container" *ngIf="experiencia">
+    <!-- Header -->
+    <div class="detail-header">
+      <div class="detail-logo" *ngIf="experiencia.logo">
+        <img [src]="experiencia.logo" [alt]="experiencia.titulo" />
+      </div>
+      <div class="detail-badge">
+        <ion-icon [name]="experiencia.icono"></ion-icon>
+        <span>{{ experiencia.cargo }}</span>
+      </div>
+      <h1 class="detail-title">{{ experiencia.titulo }}</h1>
+      <p class="detail-period">{{ experiencia.periodo }}</p>
+    </div>
 
-      <ion-list>
-        <ion-item *ngFor="let punto of experiencia?.bullets">
+    <!-- Tech Stack -->
+    <div class="detail-tech">
+      <h3>Tech Stack</h3>
+      <p>{{ experiencia.tecnologiasResumen }}</p>
+    </div>
+
+    <!-- Description -->
+    <div class="detail-description">
+      <h3>Overview</h3>
+      <p>{{ experiencia.descripcionGeneral }}</p>
+    </div>
+
+    <!-- Bullet Points -->
+    <div class="detail-bullets" @staggerList>
+      <h3>Key Contributions</h3>
+      <div class="bullet-item" *ngFor="let punto of experiencia.bullets">
+        <div class="bullet-dot">
           <ion-icon name="checkmark-outline"></ion-icon>
-          <ion-label>{{ punto }}</ion-label>
-        </ion-item>
-      </ion-list>
+        </div>
+        <p>{{ punto }}</p>
+      </div>
+    </div>
 
-      <p style="margin-top: 1em">
-        <strong>Tecnologías / aplicativos utilizados:</strong>
-      </p>
-      <p>{{ experiencia?.tecnologiasFinales }}</p>
-    </ion-card-content>
-  </ion-card>
+    <!-- Technologies Used -->
+    <div class="detail-final-tech">
+      <h3>Technologies & Tools</h3>
+      <p>{{ experiencia.tecnologiasFinales }}</p>
+    </div>
+  </div>
 </ion-content>

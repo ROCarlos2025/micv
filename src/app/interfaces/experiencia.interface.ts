@@ -7,6 +7,7 @@ export interface Experiencia {
   bullets: string[];
   tecnologiasFinales: string;
   icono: string;
+  logo?: string;
 }
 
 export interface Experiencias {

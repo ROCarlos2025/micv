@@ -1,182 +1,473 @@
-<ion-content id="cv-content">
-  <div class="cv-header">
-    <div class="cv-top-bar">
-      <div class="cv-name-title">
-        <h1 class="cv-name">Roberto Carlos Pineda Tabarez</h1>
-        <h2>Desarrollador Front End Angular</h2>
+<!-- Hero Section -->
+<ion-content [scrollEvents]="true" (ionScroll)="onScroll($event)">
+  <!-- Floating Navigation -->
+  <nav class="floating-nav glass-strong" [class.visible]="showNav">
+    <div class="nav-content">
+      <span class="nav-logo">RCP</span>
+      <div class="nav-links">
+        <a (click)="scrollTo('about')"
+          >{{ lang === 'en' ? 'About' : 'Acerca' }}</a
+        >
+        <a (click)="scrollTo('experience')"
+          >{{ lang === 'en' ? 'Experience' : 'Experiencia' }}</a
+        >
+        <a (click)="scrollTo('skills')"
+          >{{ lang === 'en' ? 'Skills' : 'Habilidades' }}</a
+        >
+        <a (click)="scrollTo('contact')"
+          >{{ lang === 'en' ? 'Contact' : 'Contacto' }}</a
+        >
       </div>
-      <div class="cv-logo">
-        <img src="assets/indra.svg" alt="Minsait Indra logo" />
+      <div class="nav-actions">
+        <button class="lang-toggle" (click)="toggleLang()">
+          {{ lang === 'en' ? 'ES' : 'EN' }}
+        </button>
+        <button class="theme-toggle" (click)="toggleTheme()">
+          <ion-icon
+            [name]="darkMode ? 'sunny-outline' : 'moon-outline'"
+          ></ion-icon>
+        </button>
       </div>
     </div>
-    <div class="cv-divider"></div>
-  </div>
+  </nav>
 
-  <div class="cv-summary">
-    <p>
-      Ingeniero en Sistemas Computacionales con sólida experiencia en desarrollo
-      Front-End usando Angular. Especialista en interfaces de alta calidad,
-      prototipos y maquetación web con Figma, Adobe XD y Photoshop. Experto en
-      diseño responsivo, integración de servicios web y consumo de APIs.
-    </p>
-    <p>
-      <strong>Perfil profesional de interés:</strong>
-      Me he destacado en la migración tecnológica de sistemas legacy a Angular,
-      integración de servicios REST, manejo avanzado de RxJS, así como en la
-      implementación de Google Analytics y Google Optimize para la mejora
-      continua de aplicaciones. He contribuido en proyectos clave para empresas
-      como Santander, CI Banco, AXA y Fundación Carlos Slim, GFT, Minsait desde
-      la maqueta hasta la puesta en producción. Busco seguir creciendo en un
-      entorno desafiante que valore la innovación y la mejora continua.
-    </p>
-  </div>
+  <!-- Hero Section -->
+  <section class="hero-section" id="hero">
+    <div class="hero-bg">
+      <div class="gradient-orb orb-1"></div>
+      <div class="gradient-orb orb-2"></div>
+      <div class="gradient-orb orb-3"></div>
+      <div class="grid-overlay"></div>
+    </div>
 
-  <!-- Foto + nombre -->
-  <div class="profile-header">
-    <img src="assets/roberto.jpg" alt="Foto de perfil" />
-    <h1>Roberto Carlos Pineda Tabarez</h1>
-    <h2>Front-End Developer / Angular Specialist</h2>
-  </div>
+    <div class="hero-content">
+      <div class="hero-badge animate-on-scroll">
+        <span class="badge-dot"></span>
+        {{ lang === 'en' ? 'Available for new opportunities' : 'Disponible para
+        nuevas oportunidades' }}
+      </div>
 
-  <!-- Perfil profesional -->
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Perfil Profesional</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <p>
-        Soy un profesional proactivo con gran capacidad para el trabajo en
-        equipo y el aprendizaje continuo. Como Ingeniero en Sistemas
-        Computacionales con más de 7 años de experiencia, me especializo en
-        desarrollo Front-End con Angular y tecnologías web modernas. Mi trabajo
-        se centra en liderar la creación de interfaces de usuario de alta
-        calidad, con diseño responsivo y optimización visual, siempre en
-        colaboración con herramientas como Figma y Adobe XD.
+      <div class="hero-photo animate-on-scroll stagger-1">
+        <div class="photo-ring"></div>
+        <img src="assets/roberto.jpg" alt="Roberto Carlos Pineda Tabarez" />
+      </div>
+
+      <h1 class="hero-title animate-on-scroll stagger-2">
+        <span class="hero-greeting"
+          >{{ lang === 'en' ? "Hello, I'm" : 'Hola, soy' }}</span
+        >
+        <span class="hero-name">Roberto Carlos</span>
+        <span class="hero-name">Pineda Tabarez</span>
+      </h1>
+
+      <p class="hero-subtitle animate-on-scroll stagger-3">
+        <span class="typed-text">Lead Front-End Developer</span>
       </p>
-      <p>
-        Cuento con experiencia en el desarrollo de aplicaciones móviles híbridas
-        utilizando Ionic + Angular, creando interfaces responsivas, funcionales
-        y optimizadas para plataformas (android, iOs). He participado en
-        procesos completos desde la maquetación hasta el despliegue, integrando
-        servicios web y aprovechando las capacidades nativas del dispositivo. Mi
-        enfoque está en aportar soluciones eficientes, visualmente atractivas y
-        escalables, bajo las mejores prácticas de desarrollo, buscando siempre
-        la mejora del look & feel y la experiencia del usuario.
+
+      <p class="hero-description animate-on-scroll stagger-4">
+        {{ lang === 'en' ? '10+ years crafting scalable architectures with
+        Angular & TypeScript. Expert in building high-performance applications
+        with cutting-edge technology.' : '10+ años creando arquitecturas
+        escalables con Angular y TypeScript. Experto en aplicaciones de alto
+        rendimiento con tecnología de vanguardia.' }}
       </p>
-    </ion-card-content>
-  </ion-card>
 
-  <!-- Experiencia -->
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Experiencia Profesional</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ul>
-        <li>
-          <a [routerLink]="['/experiencia', 'santander-loyalty']"
-            ><strong>Santander - Proyecto Loyalty (2024-2025)</strong></a
+      <div class="hero-stats animate-on-scroll stagger-5">
+        <div class="stat">
+          <span class="stat-number">10+</span>
+          <span class="stat-label"
+            >{{ lang === 'en' ? 'Years Experience' : 'Años de Experiencia'
+            }}</span
           >
-        </li>
-        <li>
-          <a [routerLink]="['/experiencia', 'cibanco']"
-            ><strong>CI-Banco - Gestor Documental (2023-2024)</strong></a
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number">7+</span>
+          <span class="stat-label"
+            >{{ lang === 'en' ? 'Angular Specialist' : 'Especialista Angular'
+            }}</span
           >
-        </li>
-        <li>
-          <a [routerLink]="['/experiencia', 'axa']"
-            ><strong>AXA - Reportes Adhoc (2023)</strong></a
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number">100%</span>
+          <span class="stat-label"
+            >{{ lang === 'en' ? 'Security Compliance' : 'Seguridad Veracode'
+            }}</span
           >
-        </li>
-        <li>
-          <a [routerLink]="['/experiencia', 'sgf']"
-            ><strong>Santander Global Facilities (2021-2022)</strong></a
-          >
-        </li>
-        <li>
-          <a [routerLink]="['/experiencia', 'gft']"
-            ><strong>GFT México (2020-2021)</strong></a
-          >
-        </li>
-        <li>
-          <a [routerLink]="['/experiencia', 'praxis']"
-            ><strong>PRAXIS México (2016-2019)</strong></a
-          >
-        </li>
-      </ul>
-    </ion-card-content>
-  </ion-card>
+        </div>
+      </div>
 
-  <!-- Tecnologías -->
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Conocimientos Técnicos</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
+      <div class="hero-cta animate-on-scroll stagger-6">
+        <button class="btn-primary" (click)="scrollTo('experience')">
+          {{ lang === 'en' ? 'View My Work' : 'Ver Mi Trabajo' }}
+          <ion-icon name="arrow-forward-outline"></ion-icon>
+        </button>
+        <button class="btn-secondary" (click)="downloadPDF()">
+          <ion-icon name="document-outline"></ion-icon>
+          {{ lang === 'en' ? 'Download CV' : 'Descargar CV' }}
+        </button>
+      </div>
+    </div>
+
+    <div class="scroll-indicator animate-on-scroll stagger-6">
+      <div class="mouse">
+        <div class="wheel"></div>
+      </div>
+      <span
+        >{{ lang === 'en' ? 'Scroll to explore' : 'Desliza para explorar'
+        }}</span
+      >
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section about-section" id="about">
+    <div class="section-container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-tag"
+          >{{ lang === 'en' ? 'ABOUT ME' : 'SOBRE MÍ' }}</span
+        >
+        <h2 class="section-title">
+          {{ lang === 'en' ? 'Building the future of web' : 'Construyendo el
+          futuro de la web' }}
+        </h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-text animate-on-scroll stagger-1">
+          <p class="about-lead">
+            {{ lang === 'en' ? 'Lead Front-End Developer with 10+ years of
+            experience in software development and 7+ years specializing in
+            Angular and TypeScript.' : 'Desarrollador Front-End Lead con 10+
+            años de experiencia en desarrollo de software y 7+ años
+            especializado en Angular y TypeScript.' }}
+          </p>
+          <p>
+            {{ lang === 'en' ? 'Expert in building scalable architectures with
+            Angular v20, utilizing Signals and RxJS for high-performance
+            reactivity. Proven track record leading distributed teams, achieving
+            100% Veracode security compliance, and ensuring zero-downtime
+            releases.' : 'Experto en construir arquitecturas escalables con
+            Angular v20, utilizando Signals y RxJS para reactividad de alto
+            rendimiento. Historial probado liderando equipos distribuidos,
+            logrando 100% de cumplimiento de seguridad Veracode y asegurando
+            releases sin downtime.' }}
+          </p>
+          <p>
+            {{ lang === 'en' ? 'Dedicated to delivering high-quality web
+            applications aligned with business growth and fast-paced release
+            cycles.' : 'Dedicado a entregar aplicaciones web de alta calidad
+            alineadas con el crecimiento del negocio y ciclos de liberación
+            ágiles.' }}
+          </p>
+        </div>
+
+        <div class="about-highlights animate-on-scroll stagger-2">
+          <div class="highlight-card">
+            <div class="highlight-icon">
+              <ion-icon name="shield-checkmark-outline"></ion-icon>
+            </div>
+            <h4>
+              {{ lang === 'en' ? 'Security First' : 'Seguridad Primero' }}
+            </h4>
+            <p>
+              {{ lang === 'en' ? '100% Veracode compliance' : '100% cumplimiento
+              Veracode' }}
+            </p>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-icon">
+              <ion-icon name="rocket-outline"></ion-icon>
+            </div>
+            <h4>{{ lang === 'en' ? 'Zero Downtime' : 'Cero Downtime' }}</h4>
+            <p>
+              {{ lang === 'en' ? 'Seamless deployments' : 'Deploys sin
+              interrupciones' }}
+            </p>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-icon">
+              <ion-icon name="people-outline"></ion-icon>
+            </div>
+            <h4>{{ lang === 'en' ? 'Team Lead' : 'Líder de Equipo' }}</h4>
+            <p>
+              {{ lang === 'en' ? 'Distributed teams' : 'Equipos distribuidos' }}
+            </p>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-icon">
+              <ion-icon name="layers-outline"></ion-icon>
+            </div>
+            <h4>{{ lang === 'en' ? 'Atomic Design' : 'Diseño Atómico' }}</h4>
+            <p>
+              {{ lang === 'en' ? 'Scalable architecture' : 'Arquitectura
+              escalable' }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section class="section experience-section" id="experience">
+    <div class="section-container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-tag"
+          >{{ lang === 'en' ? 'CAREER' : 'CARRERA' }}</span
+        >
+        <h2 class="section-title">
+          {{ lang === 'en' ? 'Work Experience' : 'Experiencia Profesional' }}
+        </h2>
+      </div>
+
+      <div class="timeline">
+        <div
+          class="timeline-item animate-on-scroll"
+          *ngFor="let exp of experiences; let i = index"
+          [class]="'stagger-' + (i % 6 + 1)"
+        >
+          <div class="timeline-marker">
+            <div class="marker-dot"></div>
+            <div class="marker-line"></div>
+          </div>
+          <div class="timeline-card" (click)="navigateToDetail(exp.id)">
+            <div class="card-header">
+              <div class="card-period">
+                {{ lang === 'en' ? exp.periodEn : exp.period }}
+              </div>
+              <div class="card-company-logo" *ngIf="exp.logo">
+                <img [src]="exp.logo" [alt]="exp.company" />
+              </div>
+            </div>
+            <h3 class="card-title">
+              {{ lang === 'en' ? exp.titleEn : exp.title }}
+            </h3>
+            <h4 class="card-company">{{ exp.company }}</h4>
+            <p class="card-description">
+              {{ lang === 'en' ? exp.descriptionEn : exp.description }}
+            </p>
+            <div class="card-tags">
+              <span class="tag" *ngFor="let tag of exp.tags">{{ tag }}</span>
+            </div>
+            <div class="card-arrow">
+              <ion-icon name="arrow-forward-outline"></ion-icon>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="section skills-section" id="skills">
+    <div class="section-container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-tag"
+          >{{ lang === 'en' ? 'EXPERTISE' : 'EXPERTISE' }}</span
+        >
+        <h2 class="section-title">
+          {{ lang === 'en' ? 'Technical Skills' : 'Habilidades Técnicas' }}
+        </h2>
+      </div>
+
+      <div class="skills-grid">
+        <!-- Programming -->
+        <div class="skill-category animate-on-scroll stagger-1">
+          <h3 class="category-title">
+            <ion-icon name="code-slash-outline"></ion-icon>
+            {{ lang === 'en' ? 'Languages & Frameworks' : 'Lenguajes y
+            Frameworks' }}
+          </h3>
+          <div class="skill-bars">
+            <div class="skill-bar-item" *ngFor="let skill of programmingSkills">
+              <div class="skill-info">
+                <span class="skill-name">{{ skill.name }}</span>
+                <span class="skill-level">{{ skill.level }}%</span>
+              </div>
+              <div class="skill-bar">
+                <div
+                  class="skill-fill"
+                  [style.width.%]="skill.level"
+                  [style.--delay]="skill.delay"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tools -->
+        <div class="skill-category animate-on-scroll stagger-2">
+          <h3 class="category-title">
+            <ion-icon name="construct-outline"></ion-icon>
+            {{ lang === 'en' ? 'Tools & Platforms' : 'Herramientas y
+            Plataformas' }}
+          </h3>
+          <div class="skill-bars">
+            <div class="skill-bar-item" *ngFor="let skill of toolsSkills">
+              <div class="skill-info">
+                <span class="skill-name">{{ skill.name }}</span>
+                <span class="skill-level">{{ skill.level }}%</span>
+              </div>
+              <div class="skill-bar">
+                <div
+                  class="skill-fill"
+                  [style.width.%]="skill.level"
+                  [style.--delay]="skill.delay"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Databases -->
+        <div class="skill-category animate-on-scroll stagger-3">
+          <h3 class="category-title">
+            <ion-icon name="server-outline"></ion-icon>
+            {{ lang === 'en' ? 'Databases' : 'Bases de Datos' }}
+          </h3>
+          <div class="skill-bars">
+            <div class="skill-bar-item" *ngFor="let skill of databaseSkills">
+              <div class="skill-info">
+                <span class="skill-name">{{ skill.name }}</span>
+                <span class="skill-level">{{ skill.level }}%</span>
+              </div>
+              <div class="skill-bar">
+                <div
+                  class="skill-fill"
+                  [style.width.%]="skill.level"
+                  [style.--delay]="skill.delay"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Soft Skills -->
+        <div class="skill-category animate-on-scroll stagger-4">
+          <h3 class="category-title">
+            <ion-icon name="heart-outline"></ion-icon>
+            {{ lang === 'en' ? 'Soft Skills' : 'Habilidades Blandas' }}
+          </h3>
+          <div class="soft-skills-grid">
+            <div class="soft-skill" *ngFor="let skill of softSkills">
+              <ion-icon [name]="skill.icon"></ion-icon>
+              <span>{{ lang === 'en' ? skill.nameEn : skill.nameEs }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section class="section education-section" id="education">
+    <div class="section-container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-tag"
+          >{{ lang === 'en' ? 'EDUCATION' : 'EDUCACIÓN' }}</span
+        >
+        <h2 class="section-title">
+          {{ lang === 'en' ? 'Academic Background' : 'Formación Académica' }}
+        </h2>
+      </div>
+
+      <div class="education-cards">
+        <div class="edu-card animate-on-scroll stagger-1">
+          <div class="edu-year">2011 — 2016</div>
+          <h3>
+            {{ lang === 'en' ? "Bachelor's Degree in Computer Systems
+            Engineering" : 'Ingeniería en Sistemas Computacionales' }}
+          </h3>
+          <p class="edu-school">
+            Instituto Tecnológico Superior de Huetamo Michoacán
+          </p>
+        </div>
+        <div class="edu-card animate-on-scroll stagger-2">
+          <div class="edu-year">
+            {{ lang === 'en' ? 'In Progress' : 'En Curso' }}
+          </div>
+          <h3>
+            {{ lang === 'en' ? "Master's in Artificial Intelligence" : 'Maestría
+            en Inteligencia Artificial' }}
+          </h3>
+          <p class="edu-school">
+            {{ lang === 'en' ? 'National Institute of México' : 'Instituto
+            Nacional de México' }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section contact-section" id="contact">
+    <div class="section-container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-tag"
+          >{{ lang === 'en' ? 'CONTACT' : 'CONTACTO' }}</span
+        >
+        <h2 class="section-title">
+          {{ lang === 'en' ? "Let's work together" : 'Trabajemos juntos' }}
+        </h2>
+      </div>
+
+      <div class="contact-grid animate-on-scroll stagger-1">
+        <a href="mailto:roberts.pineda.rcp@gmail.com" class="contact-card">
+          <div class="contact-icon">
+            <ion-icon name="mail-outline"></ion-icon>
+          </div>
+          <h4>Email</h4>
+          <p>roberts.pineda.rcp&#64;gmail.com</p>
+        </a>
+
+        <a href="tel:+527671065422" class="contact-card">
+          <div class="contact-icon">
+            <ion-icon name="call-outline"></ion-icon>
+          </div>
+          <h4>{{ lang === 'en' ? 'Phone' : 'Teléfono' }}</h4>
+          <p>+52 767 106 5422</p>
+        </a>
+
+        <a
+          href="https://rocarlos2025.github.io/micv"
+          target="_blank"
+          class="contact-card"
+        >
+          <div class="contact-icon">
+            <ion-icon name="globe-outline"></ion-icon>
+          </div>
+          <h4>{{ lang === 'en' ? 'Website' : 'Sitio Web' }}</h4>
+          <p>rocarlos2025.github.io/micv</p>
+        </a>
+      </div>
+
+      <div class="download-section animate-on-scroll stagger-2">
+        <button class="btn-primary btn-large" (click)="downloadPDFEnglish()">
+          <ion-icon name="download-outline"></ion-icon>
+          {{ lang === 'en' ? 'Download CV (English)' : 'Descargar CV (Inglés)'
+          }}
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
       <p>
-        <strong>Lenguajes:</strong> TypeScript, HTML5, CSS3, JavaScript, SASS
+        {{ lang === 'en' ? 'Designed & Built by' : 'Diseñado y desarrollado por'
+        }} <strong>Roberto Carlos Pineda Tabarez</strong>
       </p>
-      <p><strong>Frameworks:</strong> Angular (v7 a v18), RxJS, Bootstrap</p>
-      <p><strong>Herramientas:</strong> Git, Jenkins, Figma, Adobe XD</p>
-      <p><strong>Bases de datos:</strong> MySQL, MongoDB, SQL Server</p>
-    </ion-card-content>
-  </ion-card>
-
-  <!-- Educación -->
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Educación</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <p>Ingeniería en Sistemas Computacionales, ITSH (2011 - 2016)</p>
-      <p>Instituto Técnologico Superior de Huetamo</p>
-    </ion-card-content>
-  </ion-card>
-
-  <!-- Idiomas -->
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Idiomas</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <p>Español (Nativo), Inglés (B1)</p>
-    </ion-card-content>
-  </ion-card>
-
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Datos de contacto</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <p>767-106-54-22</p>
-      <p>roberts.pineda.rcp&#64;gmail.com</p>
-    </ion-card-content>
-  </ion-card>
-
-  <!-- QR -->
-  <!-- <ion-card>
-    <ion-card-header>
-      <ion-card-title>Compartir</ion-card-title>
-    </ion-card-header>
-    <ion-card-content class="ion-text-center">
-    </ion-card-content>
-  </ion-card> -->
-
-  <!-- Botones PDF -->
-  <div class="botones-container">
-    <ion-grid>
-      <ion-row class="ion-justify-content-center">
-        <ion-col size-xs="12" size-md="4">
-          <ion-button expand="block" (click)="downloadPDF()">
-            Exportar a PDF (Español)
-          </ion-button>
-        </ion-col>
-        <ion-col size-xs="12" size-md="4">
-          <ion-button expand="block" (click)="downloadPDFEnglish()">
-            Export to PDF (English)
-          </ion-button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </div>
+      <p class="footer-tech">Angular v19 · Ionic 8 · TypeScript · SCSS</p>
+      <div class="footer-languages">
+        <span
+          >🇲🇽 {{ lang === 'en' ? 'Spanish - Native' : 'Español - Nativo'
+          }}</span
+        >
+        <span>🇺🇸 {{ lang === 'en' ? 'English - B1' : 'Inglés - B1' }}</span>
+      </div>
+    </div>
+  </footer>
 </ion-content>

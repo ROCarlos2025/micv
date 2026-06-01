@@ -1,8 +1,8 @@
 {
-  "name": "mi-cv-app",
-  "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "name": "roberto-pineda-portfolio",
+  "version": "2.0.0",
+  "author": "Roberto Carlos Pineda Tabarez",
+  "homepage": "https://rocarlos2025.github.io/micv",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -30,10 +30,7 @@
     "@capacitor/status-bar": "7.0.1",
     "@ionic/angular": "^8.0.0",
     "@ionic/storage-angular": "^4.0.0",
-    "angularx-qrcode": "^19.0.0",
-    "html2canvas": "^1.4.1",
     "ionicons": "^7.0.0",
-    "jspdf": "^3.0.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
