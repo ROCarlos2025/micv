@@ -212,14 +212,6 @@ MIT
 @ionic/storage-angular
 MIT
 
-@stencil/core/internal
-
-@stencil/core/internal/app-data
-
-@stencil/core/internal/app-globals
-
-@stencil/core/internal/client
-
 localforage
 Apache-2.0
                                  Apache License
